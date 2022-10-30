@@ -1,0 +1,26 @@
+<h1> category ID : {{ category.cat_id }} </h1> 
+<h2> catebory Name : {{ category.name }} </h2> 
+<h3> category description : {{ category.description }} </h3> 
+<h2> nombre product : {{ category.getNbProduct() }}</h2> 
+<h3> created At : {{ category.getDateCreation()|date('d-m-Y')}}</h3>
+
+
+<table border="2"> 
+    <tr> 
+        <td> ref </td>
+        <td> name </td> 
+        <td> update </td>
+        <td> delete </td>
+    </tr>
+    {% for product in category.getProducts() %}
+    <tr> 
+        <td> {{ product.ref }} </td>
+        <td> {{ product.name }} </td> 
+        <td> <a href="{{ path('UpdateProduct' , {'id' : product.ref }) }}"> Update </a> </td>
+        <td> <a href="{{ path('DeleteProduct' , {'id' : product.ref }) }}"> delete </a> </td>
+    </tr>
+
+    {% endfor %}
+
+
+</table>

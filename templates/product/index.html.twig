@@ -1,0 +1,24 @@
+<h1> liste Product </h1> 
+
+
+<table border="2"> 
+    <tr> 
+        <td> ref </td>
+        <td> name </td> 
+        <td> category </td>
+        <td> update </td>
+        <td> delete </td>
+    </tr>
+    {% for product in products %}
+    <tr> 
+        <td> {{ product.ref }} </td>
+        <td> {{ product.name }} </td> 
+        <td> {{ product.getCategory().getCat_id() }} </td> 
+        <td> <a href="{{ path('UpdateProduct' , {'id' : product.ref }) }}"> Update </a> </td>
+        <td> <a href="{{ path('DeleteProduct' , {'id' : product.ref }) }}"> delete </a> </td>
+    </tr>
+
+    {% endfor %}
+
+
+</table>

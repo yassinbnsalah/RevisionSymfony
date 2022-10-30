@@ -1,0 +1,28 @@
+<h1> category list </h1>
+
+<h1> category with max nb product </h1> 
+{{ maxCate.name }}
+{{ form(f)}}
+<table border="2"> 
+    <tr>
+        <td> cat ID </td>
+        <td> name </td> 
+        <td> Category ID </td>
+        <td> update </td> 
+        <td> delete </td>
+        <td> Add Product </td>
+    </tr>
+    {% for category in categorys %}
+    <tr>
+        <td> {{ category.cat_id }} </td>
+        <td> {{ category.name }} </td> 
+        <td> <a href="{{ path('CategoryParID' , {'id' : category.cat_id }) }}"> CategoryParID </a> </td>
+        <td> <a href="{{ path('UpdateCategory' , {'id' : category.cat_id }) }}"> Update </a> </td>
+        <td> <a href="{{ path('DeleteCategory' , {'id' : category.cat_id }) }}"> Delete </a> </td>
+        <td> <a href="{{ path('AddProductWithCat' , {'id' : category.cat_id }) }}"> Add PRoduct here </a> </td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+    
